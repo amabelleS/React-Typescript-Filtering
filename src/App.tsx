@@ -1,29 +1,34 @@
-import { useState } from "react"
-// import { Select, SelectOption } from "./Select"
-
-const options = [
-  { label: "First", value: 1 },
-  { label: "Second", value: 2 },
-  { label: "Third", value: 3 },
-  { label: "Fourth", value: 4 },
-  { label: "Fifth", value: 5 },
-]
+import { useState, useEffect } from "react"
+import { useFetch } from "./useFetch"
 
 function App() {
-  const [value1, setValue1] = useState<SelectOption[]>([options[0]])
-  const [value2, setValue2] = useState<SelectOption | undefined>(options[0])
+  const [recipes, setRecipes] = useState([])
 
+  const url = import.meta.env.VITE_SPOONACULAR_URL;
+   const { response, error, isLoading } = useFetch(url);
+   console.log("🚀 ~ file: App.tsx:12 ~ App ~ response", response)
+  //  const { response, error, isLoading } = useFetch<Post[]>(url)
+ 
+  const getData = async () => {
+  const res = await fetch(import.meta.env.VITE_SPOONACULAR_URL)
+  const data = await res.json()
+  console.log("🚀 ~ file: App.tsx:11 ~ deta", data)
+  setRecipes(data)
+  return data
+ }
+
+  useEffect(() => {
+    // getData()
+  }, [])
+
+  useEffect(() => {
+    console.log("🚀 ~ file: App.tsx:22 ~ deta", recipes)
+  }, [recipes])
+
+  if (error) return <p>There is an error.</p>
+  if (isLoading) return <p>Loading...</p>
   return (
-    <>
-      <Select
-        multiple
-        options={options}
-        value={value1}
-        onChange={o => setValue1(o)}
-      />
-      <br />
-      <Select options={options} value={value2} onChange={o => setValue2(o)} />
-    </>
+    <h1>hi</h1>
   )
 }
 
