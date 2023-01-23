@@ -6,6 +6,8 @@ export function useFetch(request: RequestInfo, init?: RequestInit) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+    
     const abortController = new AbortController();
     setIsLoading(true);
     (async () => {
@@ -29,6 +31,7 @@ export function useFetch(request: RequestInfo, init?: RequestInit) {
     };
   }, [init, request]);
 
+  // console.log("🚀 ~ file: useFetch.ts:35 ~ useFetch ~ response", response)
   return { response, error, isLoading };
 }
 

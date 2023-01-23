@@ -1,0 +1,31 @@
+.list {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-y: auto;
+    overflow-x: hidden; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.submitBtn {
+    margin: 0.3rem;
+}
+
+.choosen {
+    display: flex;
+    justify-content: space-between;
+}

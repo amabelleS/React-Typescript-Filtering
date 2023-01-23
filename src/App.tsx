@@ -1,4 +1,5 @@
 import SearchIngrIdients from "./components/SearchIngrIdients"
+import './App.scss'
 
 interface RootObject {
   results: Result[];
