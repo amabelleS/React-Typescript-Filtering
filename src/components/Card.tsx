@@ -19,12 +19,11 @@ const openModal = () => {
   }
 
   return (
-    <div className={styles.card}>
-      {/* <div className="card__body"> */}
+    // <div className={styles.card}>
+    <figure>
       <img src={image} className={styles.img} />
+      <figcaption>
       <h4 className={styles.title}>{title}</h4>
-        {/* <p className="card__description">{props.description}</p> */}
-      {/* </div> */}
       <div className={styles.ingredients}>
         <strong><span className='ingredient-badge indigo'>{missedIngredientCount}</span> Missing Ingredients: </strong>
         <ul>
@@ -34,7 +33,9 @@ const openModal = () => {
         </ul>
       </div>
       <button onClick={findRecipeInfoById} className={styles.btn}>View Recipe</button>
-    </div>
+      </figcaption>
+    </figure>
+    // </div>
   )
 }
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 /*   color variables */
 $clr-primary: #d50000;
@@ -16,17 +16,38 @@ $clr-gray700: #161d34;
 /*   border radius */
 $radius: 0.2rem;
 
+/* set the layout to border box model */
+html {
+    box-sizing: border-box;
+}
+
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+/* set font family and background gradient */
+body {
+    padding: 0;
+    border: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    // font-family: 'Roboto', sans-serif;
+}
+
+img {
+    width: 100%;
+}
+
+/* Basic figure and caption styling */
+/* Turn off margin, set by browser */
+figure {
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 2rem;
+figcaption {
+    padding: 1rem;
 }
 
 .ingredient-badge {
@@ -36,6 +57,7 @@ body {
     line-height: 1rem;
     font-weight: 500;
     padding: 0.125rem 0.625rem;
+    margin: 0.2rem;
     border-radius: 9999px;
     color: #1f2937;
     background-color: #f3f4f6;
@@ -91,4 +113,18 @@ ul {
     /* Remove padding */
     margin: 0;
     /* Remove margins */
+}
+
+.btn {
+    cursor: pointer;
+    padding: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid #d50000;
+    background: transparent;
+    color: #d50000;
+    border-radius: 0.2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
 }

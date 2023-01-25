@@ -92,13 +92,13 @@ const SearchIngrIdients = () => {
   // if (error) return <p>There is an error.</p>
   // if (isLoading) return <p>Loading...</p>
   return (
-    <div>
-        <h2>Search Recipes By What Ingredients You Have</h2>
-        <form className={styles.form} onSubmit={event => addIngredient(event)}>
+    <div className={styles.wrapper}>
+      <h1>Search Recipes By What Ingredients You Have</h1>
+      <form onSubmit={event => addIngredient(event)}>
         {/* <label></label> */}
-        <div className="filter-center">
+        <div className={styles.buttonIn}>
           <input
-            className="datalist"
+            // className={styles.input}
             type="input "
             list="ingredients"
             placeholder="Choose an ingredient"
@@ -106,31 +106,35 @@ const SearchIngrIdients = () => {
             onChange={handleChange}
             onFocus={clear}
           />
+          <button type="submit" className={styles.submitBtn}>
+          Add an ingredient
+          </button>
           <datalist id="ingredients">
             {ingredients.map((ingredient) => (
               <option key={ingredient} value={ingredient}></option>
             ))}
           </datalist>
         </div>
-        <button type="submit" className={styles.submitBtn}>
-          Add an ingredient
-        </button>
       </form>
-      <button type="button" onClick={findRecipes}>
-          Find Recipes
-        </button>
       <div className={styles.choosen}>
-        <h4>Ingredients:</h4>
+        {/* <h4>Ingredients:</h4> */}
         <ul>
         {selectedIngredients.map(i => (
-            <li title='Double click to delete' key={i} className='ingredient-badge large green' onDoubleClick={() => handelDeleteIng(i as string)}>
+            <li 
+              title={`Double click to delete ${i}`} 
+              key={i} 
+              className='ingredient-badge large green' 
+              onDoubleClick={() => handelDeleteIng(i as string)}>
                 {i}
             </li>
         ))}
         </ul>
       </div>
+      <button className={`btn ${styles.findBtn}`} type="button" onClick={findRecipes}>
+          Find Recipes
+        </button>
       <div>
-        <h3>Recipes</h3>
+        {/* <h3>Recipes</h3> */}
         <ul className={styles.list} >
         {recipes && recipes.length > 0 && recipes?.map(recipe => (
             <Card key={recipe.id} {...recipe} />

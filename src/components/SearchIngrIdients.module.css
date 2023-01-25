@@ -1,31 +1,74 @@
-.list {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 1rem;
-    padding: 1rem;
-    overflow-y: auto;
-    overflow-x: hidden; */
+.wrapper {
+    display: grid;
+}
 
+h1 {
+    text-align: center;
+}
+
+.list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
     gap: 2rem;
     justify-content: center;
 }
 
-.form {
+form {
+    background: white;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    padding: 1rem;
+    justify-content: space-between;
+    padding: 0.1rem;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+form:focus-within {
+    outline: 1px solid blue
 }
 
 .submitBtn {
-    margin: 0.3rem;
+    padding: 0.3rem;
+    border: none;
+    border-left: 1px solid grey;
+    cursor: pointer;
+    color: #166534;
+    background-color: #dcfce7;
 }
 
 .choosen {
     display: flex;
     justify-content: space-between;
+}
+
+input {
+    border: none;
+    flex-grow: 2;
+    flex: 1;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
+.buttonIn {
+    width: 100%;
+    display: flex;
+}
+
+@media (min-width: 650px) {
+    .wrapper {
+        grid-template-columns: repeat(3, auto);
+        gap: 0.3rem;
+    }
+
+    .wrapper > * {
+        grid-column: span 3;
+    }
+
+    .wrapper .findBtn {
+        grid-column: 3/4;
+    }
 }
