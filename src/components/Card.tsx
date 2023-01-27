@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import {RootObject as CardProps} from './SearchIngrIdients'
 import {getRecipeInfo} from '../recipes-api/fetchRecipes'
+import { BsHeart } from 'react-icons/bs';
 
 import styles from './Card.module.css';
 
@@ -24,6 +26,8 @@ const openModal = () => {
       <img src={image} className={styles.img} />
       <figcaption>
       <h4 className={styles.title}>{title}</h4>
+      {/* <strong>{likes}<BsHeart/></strong> */}
+      {/* <span className='fa-regular fa-heart'>{likes}</span> */}
       <div className={styles.ingredients}>
         <strong><span className='ingredient-badge indigo'>{missedIngredientCount}</span> Missing Ingredients: </strong>
         <ul>
@@ -32,10 +36,11 @@ const openModal = () => {
             ))}
         </ul>
       </div>
-      <button onClick={findRecipeInfoById} className={styles.btn}>View Recipe</button>
+      <Link to={`${id}`} className='btn'>View Recipe</Link>
+      {/* <button onClick={findRecipeInfoById} className='btn'>View Recipe</button> */}
       </figcaption>
     </figure>
-    // </div>
+    // </div> 
   )
 }
 

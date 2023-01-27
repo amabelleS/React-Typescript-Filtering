@@ -150,11 +150,10 @@ export const getRecipes = async (selectedIngredients: (string | undefined)[]): P
     return results
  }
 
-export const getRecipeInfo = async (id: number, info?: string): Promise<RecipeInfo[]> => {
+export const getRecipeInfo = async (id: number, info?: string): Promise<RecipeInfo> => {
     // const strSelected = selectedIngredients.join()
     const url = `${baseUrl}/recipes/${id}/information?includeNutrition=true&apiKey=${import.meta.env.VITE_SPOONACULAR_API_KEY}`
     const res = await fetch(url)
-    const results = await res.json()
-    console.log("🚀 ~ file: App.tsx:11 ~ results", results)
-    return results
+    const result = await res.json()
+    return result
  }
